@@ -1,29 +1,108 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Champ École</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f0f0f0;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-    }
-    h1 {
-      color: #1f7a54;
-      animation: bounce 1.5s ease;
-    }
-    @keyframes bounce {
-      0% { transform: translateY(-30px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-  </style>
-</head>
-<body>
-  <h1>Bienvenue sur le site du Champ École 🌱</h1>
-  <p>Site en construction…</p>
-</body>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunu Mbey</title>
+
+    <!-- ✅ TailwindCSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ Optionnel : configuration Tailwind pour couleurs personnalisées -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primaire: '#15803d', // vert Sunu Mbey
+              secondaire: '#fbbf24', // jaune doux
+              fonce: '#0f172a' // pour dark mode
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- ✅ Google Fonts (facultatif mais joli) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-gray-800 transition duration-300 dark:bg-fonce dark:text-white">
+
+    <!-- ✅ HEADER avec dark mode -->
+    <header class="flex justify-between items-center p-4 shadow-md sticky top-0 bg-white dark:bg-fonce z-50">
+      <h1 class="text-xl font-bold text-primaire">🌿 Sunu Mbey</h1>
+      <button id="toggleDark" class="bg-primaire text-white px-3 py-1 rounded">
+        🌙 Mode sombre
+      </button>
+    </header>
+
+    <!-- ✅ SECTION HERO -->
+    <section class="h-[90vh] flex flex-col justify-center items-center text-center bg-gradient-to-br from-primaire to-emerald-500 text-white px-4">
+      <h2 class="text-4xl md:text-6xl font-bold mb-4">Sunu Mbey</h2>
+      <p class="text-lg md:text-2xl mb-6">Cultivons l’avenir durable</p>
+      <a href="#apropos" class="bg-white text-primaire font-semibold px-5 py-3 rounded hover:bg-yellow-300 transition">
+        Découvrir
+      </a>
+    </section>
+
+    <!-- ✅ À PROPOS -->
+    <section id="apropos" class="py-12 px-6 max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4">À propos</h3>
+      <p>Sunu Mbey est un projet porté par des étudiants pour expérimenter l’agriculture durable, la technologie et l’innovation locale à Kaolack.</p>
+    </section>
+
+    <!-- ✅ ACTIVITÉS & VISITES -->
+    <section class="py-12 px-6 bg-gray-100 dark:bg-gray-800">
+      <h3 class="text-2xl font-bold mb-4">Activités & Visites</h3>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Visites guidées de la serre connectée</li>
+        <li>Ateliers sur l’agriculture numérique</li>
+        <li>Formation sur les capteurs et les cultures</li>
+        <li>Journées environnementales et expositions</li>
+      </ul>
+    </section>
+
+    <!-- ✅ NOS PROJETS -->
+    <section class="py-12 px-6 max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4">Nos Projets</h3>
+      <p>Nous avons conçu une serre connectée avec des capteurs (humidité, température), un réseau local Zigbee et un pilotage via Raspberry Pi.</p>
+    </section>
+
+    <!-- ✅ NOTRE ÉQUIPE -->
+    <section class="py-12 px-6 bg-gray-100 dark:bg-gray-800">
+      <h3 class="text-2xl font-bold mb-4">Notre Équipe</h3>
+      <p>Une équipe multidisciplinaire de jeunes engagés en environnement, climat et technologie.</p>
+    </section>
+
+    <!-- ✅ CONTACT -->
+    <section class="py-12 px-6 max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4">Contact</h3>
+      <p>Email : <a href="mailto:sunumbley@example.com" class="text-primaire hover:underline">sunumbley@example.com</a></p>
+      <p>WhatsApp : <a href="https://wa.me/221771234567" class="text-primaire hover:underline">+221 77 123 45 67</a></p>
+    </section>
+
+    <!-- ✅ FOOTER -->
+    <footer class="bg-primaire text-white text-center p-4">
+      © 2025 Sunu Mbey - Tous droits réservés
+    </footer>
+
+    <!-- ✅ SCRIPTS INTERACTIFS -->
+    <script>
+      // Bouton dark mode
+      const toggle = document.getElementById('toggleDark');
+      const html = document.documentElement;
+
+      toggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        toggle.textContent = html.classList.contains('dark') ? '☀️ Mode clair' : '🌙 Mode sombre';
+      });
+    </script>
+
+  </body>
 </html>
